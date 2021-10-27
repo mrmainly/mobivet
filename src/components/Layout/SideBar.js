@@ -5,7 +5,7 @@ import { Box, MenuItem, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(() => ({
     menuTitle: {
-        backgroundColor: 'rgba(68, 119, 146, 1)',
+        backgroundColor: 'rgba(42, 147, 195, 1)',
         color: '#fff',
         padding: '5px 10px 5px 20px',
         borderRadius: 5,
@@ -21,31 +21,63 @@ const useStyles = makeStyles(() => ({
 
 const SideBar = () => {
     const classes = useStyles()
+    const sideBarData = [
+        {
+            title: 'Сортировка',
+            items: [
+                {
+                    label: 'Сначала дешевые',
+                    change: ''
+                },
+                {
+                    label: 'Сначала дорогие',
+                    change: ''
+                }
+            ]
+        },
+        {
+            title: 'Животные:',
+            items: [
+                {
+                    label: 'Все',
+                    change: ''
+                },
+                {
+                    label: 'Кошки',
+                    change: ''
+                },
+                {
+                    label: 'Собаки',
+                    change: ''
+                },
+                {
+                    label: 'Птицы',
+                    change: ''
+                },
+                {
+                    label: 'Грызуны',
+                    change: ''
+                },
+
+            ]
+        }
+    ]
     return (
         <Box>
-            <Box>
-                <Box className={classes.menuTitle}>
-                    <Typography variant="body1">Сортировка:</Typography>
+            {sideBarData.map((item, index) => (
+                <Box key={index}>
+                    <Box className={classes.menuTitle}>
+                        <Typography variant="body1">{item.title}</Typography>
+                    </Box>
+                    <Box className={classes.menuItemBox}>
+                        {item.items.map((elem, index) => (
+                            <MenuItem className={classes.menuItemText} key={index}>
+                                <Typography variant="body1" >{elem.label}</Typography>
+                            </MenuItem>
+                        ))}
+                    </Box>
                 </Box>
-                <Box className={classes.menuItemBox}>
-                    <MenuItem className={classes.menuItemText}>
-                        <Typography variant="body1" >Сначала дешевые</Typography>
-                    </MenuItem>
-                    <MenuItem className={classes.menuItemText}>
-                        <Typography variant="body1">Сначала дешевые</Typography>
-                    </MenuItem>
-                </Box>
-            </Box>
-            <Box>
-                <Box className={classes.menuTitle}>
-                    <Typography variant="body1">Каталог услуг:</Typography>
-                </Box>
-                <Box className={classes.menuItemBox}>
-                    <MenuItem className={classes.menuItemText}>
-                        <Typography variant="body1" >Сначала дешевые</Typography>
-                    </MenuItem>
-                </Box>
-            </Box>
+            ))}
         </Box>
     )
 }
