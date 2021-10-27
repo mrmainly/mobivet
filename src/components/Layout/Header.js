@@ -1,12 +1,78 @@
-import React, { useContext } from 'react'
-import { Box, Container, Typography, TextField, MenuItem } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState, useEffect, useContext } from "react";
+import {
+    AppBar,
+    Toolbar,
+    makeStyles,
+    IconButton,
+    Drawer,
+    MenuItem,
+    Box,
+    Container,
+    Typography
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
 
 import themeMain from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
+    header: {
+        "@media (max-width: 1279px)": {
+            paddingLeft: 0,
+            background: themeMain.palette.background.layoutBackground,
+        },
+    },
+    drawerContainer: {
+        width: 250
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'space-between',
+    },
+    full_screen: {
+        background: themeMain.palette.background.layoutBackground,
+        paddingTop: 5,
+        paddingBottom: 5,
+        minHeight: 30
+    },
+    link_Style: {
+        color: 'white',
+        [theme.breakpoints.down('md')]: {
+            marginLeft: 0,
+            fontSize: 18,
+            marginTop: 10,
+            marginBottom: 10,
+            borderRadius: 4,
+            width: '100%',
+            color: 'black',
+            background: 'white',
+            boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+            width: 200,
+        },
+    },
+    img: {
+        width: 102,
+    },
+    login: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        [theme.breakpoints.down('md')]: {
+            marginLeft: 0,
+            fontSize: 18,
+            marginTop: 10,
+            marginBottom: 10,
+            borderRadius: 4,
+            width: '100%',
+            color: 'black',
+            background: 'white',
+            boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+            width: 200,
+            height: 40
+        },
+    },
     menuItemStyle: {
         minHeight: 41,
         borderLeft: '2px solid white'
@@ -26,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
     },
     up_block: {
         minHeight: 230,
+        background: 'white'
     },
     line_box: {
         width: 2,
@@ -83,20 +150,16 @@ const useStyles = makeStyles((theme) => ({
             marginBottom: 0,
         },
     },
-    wrapperContainer: {
-        [theme.breakpoints.down('md')]: {
-            display: 'none'
-        },
-    },
     headerBlock: {
         display: 'flex',
         color: 'black',
         flexDirection: 'column',
         width: 300,
     },
-}))
+}));
 
-const Header = () => {
+export default function Header() {
+    const classes = useStyles();
     const router = useHistory()
     const headersData = [
         {
@@ -112,94 +175,163 @@ const Header = () => {
             title: 'Дневник питомцев',
         },
         {
-            link: '/faq',
+            link: '/faq-page',
             title: 'Вопрос/Ответ',
         },
         {
-            link: '/faq',
+            link: '/contacts-page',
             title: 'Контакты',
             showLine: true
         }
 
     ];
+
+    const [state, setState] = useState({
+        mobileView: false,
+        drawerOpen: false,
+    });
+
+    const { mobileView, drawerOpen } = state;
+
+    useEffect(() => {
+        const setResponsiveness = () => {
+            return window.innerWidth < 1279
+                ? setState((prevState) => ({ ...prevState, mobileView: true }))
+                : setState((prevState) => ({ ...prevState, mobileView: false }));
+        };
+        setResponsiveness();
+        window.addEventListener("resize", () => setResponsiveness());
+    }, []);
+    const displayDesktop = () => {
+        return (
+            <div className={classes.wrapperContainer}>
+                <Box className={classes.up_block}>
+                    <Container className={classes.up_block_container}>
+                        <Box className={classes.up_block__info}>
+                            <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+                                <img src={'/img/mobivet21.png'} style={{ width: 420 }} />
+                                <Typography variant="body1" className={classes.title}>
+                                    Портал для владельцев животных в Якутии
+                                </Typography>
+                            </Box>
+                        </Box>
+                        <Box>
+                            <img src={'/img/27406a921.png'} className={classes.img} />
+                        </Box>
+                        <Box className={classes.headerBlock}>
+                            <Box style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'/img/V.png'} style={{ marginRight: 10 }} />
+                                <Box>
+                                    <Typography style={{ fontSize: 11 }}>Call-центр: </Typography>
+                                    <Typography>500-900</Typography>
+                                </Box>
+                            </Box>
+                            <Box style={{ display: 'flex', alignItems: 'center', marginTop: 20 }}>
+                                <img src={'/img/V.png'} style={{ marginRight: 10 }} />
+                                <Box >
+                                    <Typography style={{ fontSize: 11 }}>Касса платных услуг: </Typography>
+                                    <Box style={{ display: 'flex' }}>
+                                        <Typography variant="body1">395306(взрослая)</Typography>
+                                        <Typography variant="body1" style={{ marginLeft: 10 }}>395651(детская)</Typography>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Container>
+                </Box >
+                <Box className={classes.header_down}>
+                    <Container>
+                        <Box className={classes.down_block}>
+                            <Box style={{ display: 'flex' }}>
+                                {headersData.map((item, index) => (
+                                    <Link to={item.link} key={index} className={classes.link_Box}>
+                                        <MenuItem className={classes.menuItemStyle} style={{ borderRight: `${item.showLine ? '2px solid white' : '0px solid white'}` }}>
+                                            {item.title}
+                                        </MenuItem>
+                                    </Link>
+                                ))}
+                            </Box>
+                            <Box style={{ display: 'flex' }}>
+                                <MenuItem style={{ display: 'flex', alignItems: 'center', marginLeft: 100 }} onClick={() => { router.push('/basket') }}>
+                                    <img src={'/img/Frame61.png'} style={{ marginRight: 10, marginLeft: '-10px' }} />
+                                    <Box>
+                                        <Typography>Корзина</Typography>
+                                    </Box>
+                                </MenuItem>
+                                {loginBlock()}
+                            </Box>
+                        </Box>
+                    </Container>
+                </Box>
+            </div >
+        );
+    };
     const loginBlock = () => {
         return (
             <Box>
-
                 <MenuItem className={classes.login} onClick={() => router.push('/auth/login')}>
                     <img src={'/img/fi_user.png'} style={{ marginRight: 10 }} />
                     <Typography>Войти в аккаунт</Typography>
                 </MenuItem>
-                {/* <MenuItem className={classes.login}>
-                    <img src={'/img/fi_user.png'} style={{ marginRight: 10 }} />
-                    <Link to="/form-profile" style={{ textDecoration: 'none', color: 'white' }}>grummsed.kolesov@gmail.com</Link>
-                </MenuItem> */}
             </Box>
         )
     }
-    const classes = useStyles()
-    return (
-        <div className={classes.wrapperContainer}>
-            <Box className={classes.up_block}>
-                <Container className={classes.up_block_container}>
-                    <Box className={classes.up_block__info}>
-                        <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-                            <img src={'/img/mobivet21.png'} style={{ width: 420 }} />
-                            <Typography variant="body1" className={classes.title}>
-                                Портал для владельцев животных в Якутии
-                            </Typography>
-                        </Box>
-                    </Box>
-                    <Box>
-                        <img src={'/img/27406a921.png'} className={classes.img} />
-                    </Box>
-                    <Box className={classes.headerBlock}>
-                        <Box style={{ display: 'flex', alignItems: 'center' }}>
-                            <img src={'/img/V.png'} style={{ marginRight: 10 }} />
-                            <Box>
-                                <Typography style={{ fontSize: 11 }}>Call-центр: </Typography>
-                                <Typography>500-900</Typography>
-                            </Box>
-                        </Box>
-                        <Box style={{ display: 'flex', alignItems: 'center', marginTop: 20 }}>
-                            <img src={'/img/V.png'} style={{ marginRight: 10 }} />
-                            <Box >
-                                <Typography style={{ fontSize: 11 }}>Касса платных услуг: </Typography>
-                                <Box style={{ display: 'flex' }}>
-                                    <Typography variant="body1">395306(взрослая)</Typography>
-                                    <Typography variant="body1" style={{ marginLeft: 10 }}>395651(детская)</Typography>
-                                </Box>
-                            </Box>
-                        </Box>
-                    </Box>
-                </Container>
-            </Box >
-            <Box className={classes.header_down}>
-                <Container>
-                    <Box className={classes.down_block}>
-                        <Box style={{ display: 'flex' }}>
-                            {headersData.map((item, index) => (
-                                <Link to={item.link} key={index} className={classes.link_Box}>
-                                    <MenuItem className={classes.menuItemStyle} style={{ borderRight: `${item.showLine ? '2px solid white' : '0px solid white'}` }}>
-                                        {item.title}
-                                    </MenuItem>
-                                </Link>
-                            ))}
-                        </Box>
-                        <Box style={{ display: 'flex' }}>
-                            <MenuItem style={{ display: 'flex', alignItems: 'center', marginLeft: 100 }} onClick={() => { router.push('/basket') }}>
-                                <img src={'/img/Frame61.png'} style={{ marginRight: 10, marginLeft: '-10px' }} />
-                                <Box>
-                                    <Typography>Корзина</Typography>
-                                </Box>
-                            </MenuItem>
-                            {loginBlock()}
-                        </Box>
-                    </Box>
-                </Container>
-            </Box>
-        </div >
-    )
-}
+    const displayMobile = () => {
+        const handleDrawerOpen = () =>
+            setState((prevState) => ({ ...prevState, drawerOpen: true }));
+        const handleDrawerClose = () =>
+            setState((prevState) => ({ ...prevState, drawerOpen: false }));
 
-export default Header
+        return (
+            <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Box style={{ display: 'flex', }}>
+                    <IconButton
+                        {...{
+                            edge: "start",
+                            "aria-label": "menu",
+                            "aria-haspopup": "true",
+                            onClick: handleDrawerOpen,
+                        }}
+                        style={{ color: 'white', marginRight: 10 }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Box style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <Typography variant="h6" >MobiVet</Typography>
+                    </Box>
+                </Box>
+                <Drawer
+                    {...{
+                        anchor: "left",
+                        open: drawerOpen,
+                        onClose: handleDrawerClose,
+                    }}
+                >
+                    <div className={classes.drawerContainer} >{getDrawerChoices()}</div>
+                </Drawer>
+            </Toolbar>
+        );
+    };
+
+    const getDrawerChoices = () => {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                {loginBlock()}
+                {headersData.map(item => (
+                    <Link to={item.link}>
+                        <MenuItem className={classes.login}>
+                            {item.title}
+                        </MenuItem>
+                    </Link>
+                ))}
+            </div>
+        )
+    };
+    return (
+        <header>
+            <AppBar className={classes.header} position="static">
+                {mobileView ? displayMobile() : displayDesktop()}
+            </AppBar>
+        </header>
+    );
+}

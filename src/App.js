@@ -5,6 +5,8 @@ import { stateReducer } from './reducer/DataReducer'
 
 import HomePage from './pages/home/homePage'
 import ServicePage from "./pages/services/servicesPage";
+import FaqPage from './pages/faq/faqPage'
+import ContactsPage from './pages/contacts/ContactsPage';
 
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
@@ -19,6 +21,9 @@ const App = () => {
           <Switch>
             <Route path="/" component={HomePage} exact />
             <Route path="/service-page" component={ServicePage} />
+            <Route path="/faq-page" component={FaqPage} />
+            <Route path="/contacts-page" component={ContactsPage} />
+
             <Route path="/auth/login" component={Login} />
             <Route path="/auth/register" component={Register} />
           </Switch>
