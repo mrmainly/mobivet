@@ -41,26 +41,7 @@ const ContactsPage = () => {
     const classes = useStyles()
     return (
         <Container className={classes.container}>
-            <Box className={classes.inputBox}>
-                <TextField
-                    size="small"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    className={classes.TextFieldStyle}
-                    label="Ваше имя"
-                />
-                <TextField
-                    size="small"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    className={classes.TextFieldStyle}
-                    label="Ваша электронная почта"
-                />
-            </Box>
-            <TextareaAutosize className={classes.textAreaStyles} aria-label="maximum height" rowsMin={10} placeholder="Ваше сообщение" />
-            <ButtonCustom>Отправить сообщение</ButtonCustom>
+
         </Container>
     )
 }

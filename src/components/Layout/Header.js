@@ -252,7 +252,7 @@ export default function Header() {
                                 ))}
                             </Box>
                             <Box style={{ display: 'flex' }}>
-                                <MenuItem style={{ display: 'flex', alignItems: 'center', marginLeft: 100 }} onClick={() => { router.push('/basket') }}>
+                                <MenuItem style={{ display: 'flex', alignItems: 'center', marginLeft: 100 }} onClick={() => { router.push('/basket-page') }}>
                                     <img src={'/img/Frame61.png'} style={{ marginRight: 10, marginLeft: '-10px' }} />
                                     <Box>
                                         <Typography>Корзина</Typography>
