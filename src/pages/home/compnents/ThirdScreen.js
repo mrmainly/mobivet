@@ -53,17 +53,17 @@ const ThirdScreen = () => {
                 <Grid className={classes.infoBlock} item xl={4} sm={12} xs={12} md={12} lg={4}>
                     <Box className={classes.infoBlockItem}>
                         <Typography variant="h5" className={classes.title}>Дневник питомцев</Typography>
-                        <Typography variant="body1">фждылв зфдлывж длфы жыв ждлфыжы вждлфыж двлфждылв ждфылв ждфл ывждфлыж вдлффдыб вд жфыбв</Typography>
+                        <Typography variant="body1">Дневник питомца Тут вы можете вести записи о вашем питомце, когда и где поставили прививки или провели процедуру.</Typography>
                         <Box className={classes.line}></Box>
                     </Box>
                     <Box className={classes.infoBlockItem}>
                         <Typography variant="h5" className={classes.title}>Умные советы</Typography>
-                        <Typography variant="body1">фждылв зфдлывж длфы жыв ждлфыжы вждлфыж двлфждылв ждфылв ждфл ывждфлыж вдлффдыб вд жфыбв</Typography>
+                        <Typography variant="body1">Умные советы Здесь вы найдете советы по содержанию питомца</Typography>
                         <Box className={classes.line}></Box>
                     </Box>
                     <Box className={classes.infoBlockItem}>
                         <Typography variant="h5" className={classes.title}>Онлайн калькулятор</Typography>
-                        <Typography variant="body1">фждылв зфдлывж длфы жыв ждлфыжы вждлфыж двлфждылв ждфылв ждфл ывждфлыж вдлффдыб вд жфыбв</Typography>
+                        <Typography variant="body1">Онлайн калькулятор Тут вы можете расчитать индексы здоровья</Typography>
                         <Box className={classes.lineShow}></Box>
                     </Box>
                 </Grid>
@@ -73,12 +73,16 @@ const ThirdScreen = () => {
                 <Grid className={classes.infoBlock} item xl={4} sm={12} xs={12} md={12} lg={4}>
                     <Box className={classes.infoBlockItem}>
                         <Typography variant="h5" className={classes.title}>Консультации</Typography>
-                        <Typography variant="body1">фждылв зфдлывж длфы жыв ждлфыжы вждлфыж двлфждылв ждфылв ждфл ывждфлыж вдлффдыб вд жфыбв</Typography>
+                        <Typography variant="body1">Консультации
+
+                            Напишите о вашей проблеме в ветеринарную клинику и они лбязательн помогут</Typography>
                         <Box className={classes.line}></Box>
                     </Box>
                     <Box className={classes.infoBlockItem}>
                         <Typography variant="h5" className={classes.title}>Телеветеринария</Typography>
-                        <Typography variant="body1">фждылв зфдлывж длфы жыв ждлфыжы вждлфыж двлфждылв ждфылв ждфл ывждфлыж вдлффдыб вд жфыбв</Typography>
+                        <Typography variant="body1">Телеветеринария
+
+                            Вы можете получить онлайн консультацию о здоровье вашего питомца</Typography>
                     </Box>
                 </Grid>
             </Grid>

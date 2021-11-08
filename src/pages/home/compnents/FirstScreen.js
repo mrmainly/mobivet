@@ -40,7 +40,7 @@ const FirstScreen = () => {
             </Box>
             <Box className={classes.infoBlock}>
                 <Typography variant="h4" className={classes.text}>MOBIVET</Typography>
-                <Typography variant="body1" className={classes.text}>ффы лвофлыв фыовдфлоы вдфы вдлфыо вдлфоыд влфоыдвлофыдлв офдылво фдыловдлф ффы лвофлыв фыовдфлоы вдфы вдлфыо вдлфоыд влфоыдвлофыдлв офдылво фдыловдлф ффы лв</Typography>
+                <Typography variant="body1" className={classes.text}>Мобивет Здесь вы можете вести дневик, получить совет или консультацию для вашего питомца.</Typography>
                 <ButtonCustom>Дневник питомцев</ButtonCustom>
                 <ButtonCustom>Калькулятор здоровья</ButtonCustom>
                 <ButtonCustom>Умные советы</ButtonCustom>

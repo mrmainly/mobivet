@@ -219,7 +219,7 @@ export default function Header() {
                             <img src={'/img/27406a921.png'} className={classes.img} />
                         </Box>
                         <Box className={classes.headerBlock}>
-                            <Box style={{ display: 'flex', alignItems: 'center' }}>
+                            {/* <Box style={{ display: 'flex', alignItems: 'center' }}>
                                 <img src={'/img/V.png'} style={{ marginRight: 10 }} />
                                 <Box>
                                     <Typography style={{ fontSize: 11 }}>Call-центр: </Typography>
@@ -235,7 +235,7 @@ export default function Header() {
                                         <Typography variant="body1" style={{ marginLeft: 10 }}>395651(детская)</Typography>
                                     </Box>
                                 </Box>
-                            </Box>
+                            </Box> */}
                         </Box>
                     </Container>
                 </Box >
