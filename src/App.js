@@ -8,6 +8,7 @@ import ServicePage from "./pages/services/servicesPage";
 import FaqPage from './pages/faq/faqPage'
 import ContactsPage from './pages/contacts/ContactsPage';
 import Basket from './pages/basket/index'
+import AnimalDiary from './pages/animalDiary';
 
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
@@ -25,9 +26,11 @@ const App = () => {
             <Route path="/faq-page" component={FaqPage} />
             <Route path="/contacts-page" component={ContactsPage} />
             <Route path="/basket-page" component={Basket} />
+            <Route path="/animal-diary" component={AnimalDiary} />
 
             <Route path="/auth/login" component={Login} />
             <Route path="/auth/register" component={Register} />
+
           </Switch>
         </Router>
       </StateContext.Provider>

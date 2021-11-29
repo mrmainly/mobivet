@@ -171,7 +171,7 @@ export default function Header() {
             title: 'Услуги',
         },
         {
-            link: '/faq',
+            link: '/animal-diary',
             title: 'Дневник питомцев',
         },
         {
@@ -221,7 +221,9 @@ export default function Header() {
                         <Box className={classes.headerBlock}>
                             {/* <Box style={{ display: 'flex', alignItems: 'center' }}>
                                 <img src={'/img/V.png'} style={{ marginRight: 10 }} />
-                                <Box>
+                                <Box>Консультации
+
+Напишите о вашей проблеме в ветеринарную клинику и они лбязательн помогут
                                     <Typography style={{ fontSize: 11 }}>Call-центр: </Typography>
                                     <Typography>500-900</Typography>
                                 </Box>
