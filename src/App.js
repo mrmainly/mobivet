@@ -1,13 +1,13 @@
 import React, { useReducer } from 'react'
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { DispatchContext, StateContext, defaultStore } from './store/Index'
+import { DispatchContext, StateContext, defaultStore } from './store'
 import { stateReducer } from './reducer/DataReducer'
 
-import HomePage from './pages/home/homePage'
-import ServicePage from "./pages/services/servicesPage";
-import FaqPage from './pages/faq/faqPage'
-import ContactsPage from './pages/contacts/ContactsPage';
-import Basket from './pages/basket/index'
+import HomePage from './pages/home'
+import ServicePage from "./pages/services";
+import FaqPage from './pages/faq'
+import ContactsPage from './pages/contacts';
+import Basket from './pages/basket'
 import AnimalDiary from './pages/animalDiary';
 
 import Login from './pages/auth/Login'

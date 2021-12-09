@@ -2,9 +2,9 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Box, Typography, MenuItem, Container } from '@material-ui/core'
 
-import Layout from '../../components/Layout/Layout'
 import { CardBasketJson } from '../../Json/CardBasketJson'
-import CardBasket from '../../components/CardBasket'
+import { Layout, CardBasket } from '../../components'
+
 
 const useStyles = makeStyles(() => ({
     titleBox: {

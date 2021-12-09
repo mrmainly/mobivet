@@ -4,7 +4,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from "@material-ui/core/styles";
 
 import faqs from '../../Json/FaqList'
-import Layout from '../../components/Layout/Layout'
+import { Layout } from '../../components'
 
 const useClasses = makeStyles({
     question: {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Layout from '../../components/Layout/Layout'
+import { Layout } from '../../components'
 import FirstScreen from './compnents/FirstScreen'
 import SecondScreen from "./compnents/SecondScreen";
 import ThirdScreen from "./compnents/ThirdScreen";

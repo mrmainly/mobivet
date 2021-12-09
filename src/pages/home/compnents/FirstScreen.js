@@ -3,7 +3,7 @@ import React from 'react'
 import { Box, Typography, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import ButtonCustom from '../../../components/ButtonCustom'
+import { Button } from '../../../components'
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -41,9 +41,9 @@ const FirstScreen = () => {
             <Box className={classes.infoBlock}>
                 <Typography variant="h4" className={classes.text}>MOBIVET</Typography>
                 <Typography variant="body1" className={classes.text}>Мобивет Здесь вы можете вести дневик, получить совет или консультацию для вашего питомца.</Typography>
-                <ButtonCustom>Дневник питомцев</ButtonCustom>
-                <ButtonCustom>Калькулятор здоровья</ButtonCustom>
-                <ButtonCustom>Умные советы</ButtonCustom>
+                <Button>Дневник питомцев</Button>
+                <Button>Калькулятор здоровья</Button>
+                <Button>Умные советы</Button>
             </Box>
         </Container>
     )

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Box } from '@material-ui/core'
 
 import { CardArray } from '../Json/CardsArray'
-import CardCastom from '../components/CardCustom'
+import { CardCastom } from '../components'
 
 const useStyles = makeStyles(() => ({
     content: {

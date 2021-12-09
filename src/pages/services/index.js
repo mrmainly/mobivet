@@ -1,9 +1,8 @@
 import React from 'react'
 import { Container, Grid } from '@material-ui/core'
 
-import Layout from '../../components/Layout/Layout'
+import { Layout, SideBar } from '../../components'
 import MainContentCards from '../../constructor/MainContentCards'
-import SideBar from '../../components/Layout/SideBar'
 
 const ServicePage = () => {
     return (

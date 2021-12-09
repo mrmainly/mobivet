@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Layout from '../../components/Layout/Layout'
-import CardDiary from '../../components/CardDiary'
+import { Layout, CardDiary } from '../../components'
 import { CardBasketJson } from '../../Json/CardBasketJson'
 
 import { Container, Box } from '@material-ui/core'

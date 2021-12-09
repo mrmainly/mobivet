@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Container, Typography, TextField, TextareaAutosize } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import ButtonCustom from '../../../components/ButtonCustom'
+import { Button } from '../../../components'
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -142,7 +142,7 @@ const FeedbackScreen = () => {
                         />
                     </Box>
                     <TextareaAutosize className={classes.textAreaStyles} aria-label="maximum height" rowsMin={10} placeholder="Ваше сообщение" />
-                    <ButtonCustom>Отправить сообщение</ButtonCustom>
+                    <Button>Отправить сообщение</Button>
                 </Box>
             </Container>
         </Box>

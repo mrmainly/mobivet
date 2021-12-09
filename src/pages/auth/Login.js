@@ -6,10 +6,8 @@ import { useForm } from 'react-hook-form'
 
 import { DispatchContext } from '../../store/Index';
 
-import ButtonCustom from '../../components/ButtonCustom';
-import Layout from '../../components/Layout/Layout';
-import { Form } from '../../components/Form'
-import { Input } from '../../components/Input'
+import { Button, Layout, Form, Input } from '../../components';
+
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -71,7 +69,7 @@ export default function Login() {
                                 </Grid>
                             </Grid>
                             <Box style={{ marginTop: 10 }}>
-                                <ButtonCustom>Войти</ButtonCustom>
+                                <Button>Войти</Button>
                             </Box>
                         </Form>
                         <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>

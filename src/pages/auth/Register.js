@@ -1,14 +1,11 @@
 import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ButtonCustom from '../../components/ButtonCustom';
 import { Box, Typography, Grid, Container } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 import { DispatchContext } from '../../store/Index';
-import Layout from '../../components/Layout/Layout';
-import { Form } from '../../components/Form'
-import { Input } from '../../components/Input'
+import { Button, Layout, Form, Input } from '../../components';
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -80,7 +77,7 @@ export default function Register() {
                                 </Grid>
                             </Grid>
                             <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 20 }}>
-                                <ButtonCustom >Зарегестрироваться</ButtonCustom>
+                                <Button >Зарегестрироваться</Button>
                             </Box>
                         </Form>
                     </div>

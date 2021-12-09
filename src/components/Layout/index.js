@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Container } from '@material-ui/core'
-import Notification from '../../components/Notification'
+import { Notification } from '../../components'
 
 import MobileHeader from './Header'
 import Footer from './Footer'
